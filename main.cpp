@@ -64,7 +64,6 @@ int minute_count;
 void scan_WIFI();
 boolean connect_Wifi();
 int server_get();
-int Circus_write(double value);
 int Circus_write(const char* Circus_key, double value);
 
 
@@ -183,7 +182,7 @@ void loop() {
         Serial.printf("%4.2f %4.2f\n",double((millis()/1000)), test_speed);
       }
       // Write the measured speed to circusofthings.com
-      Circus_write(test_speed);
+      Circus_write(Circus_key, test_speed);
       digitalWrite(LED_BUILTIN, LED_OFF);
     }
     // prepare the next call in one minute
